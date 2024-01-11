@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { ChevronRightIcon, X } from "lucide-react";
 
 export default function Navbar() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const nav = ["blog", "projects", "about", "newsletter"];
 
   return (
@@ -15,8 +15,9 @@ export default function Navbar() {
         <h3 className="font-semibold text-2xl">Your Name</h3>
       </div>
       <div
-        className={`${showMenu ? "flex" : "hidden"
-          } flex-col bg-red-300 absolute top-10 w-full  items-center md:w-1/2 md:flex md:flex-row md:items-start justify-end`}
+        className={`${
+          showMenu ? "flex" : "hidden"
+        } flex-col absolute top-10 w-full  items-center md:relative md:top-0 md:w-1/2 md:flex md:flex-row md:items-start justify-end`}
       >
         {nav.map((ele, index) => (
           <NavButton key={index}>{ele}</NavButton>
