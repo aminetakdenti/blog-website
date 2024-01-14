@@ -4,7 +4,7 @@ export default function Header({ children }: { children: string }) {
   return (
     <div className="text-center">
       <hr />
-      <h1 className="uppercase font-bold text-[130px] md:text-[240px] lg:text-[260px]">
+      <h1 className="relative uppercase font-bold text-6xl sm:text-[133px] md:text-[170px] lg:text-[240px] xl:text-[265px] ">
         {children}
       </h1>
       <hr />
