@@ -7,7 +7,12 @@ import { ChevronRightIcon, X } from "lucide-react";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
-  const nav = ["blog", "projects", "about", "newsletter"];
+  const nav = [
+    { name: "blog", route: "/" },
+    { name: "projects", route: "/projects" },
+    { name: "about", route: "/about" },
+    { name: "newsletter", route: "/newsletter" },
+  ];
 
   return (
     <div className="flex justify-between my-10 relative">
@@ -20,7 +25,7 @@ export default function Navbar() {
         } flex-col absolute top-10 w-full  items-center md:relative md:top-0 md:w-1/2 md:flex md:flex-row md:items-start justify-end`}
       >
         {nav.map((ele, index) => (
-          <NavButton key={index}>{ele}</NavButton>
+          <NavButton key={index} name={ele.name} route={ele.route} />
         ))}
       </div>
 
@@ -36,11 +41,11 @@ export default function Navbar() {
   );
 }
 
-function NavButton({ children }: { children: string }) {
+function NavButton({ name, route }: { name: string; route: string }) {
   return (
     <Button variant={"link"} className="hover:font-bold">
-      <Link href={`${children}`} className="text-lg">
-        {children}
+      <Link href={route} className="text-lg">
+        {name}
       </Link>
     </Button>
   );
